@@ -32,9 +32,12 @@ const MainProvider = ({ children }) => {
         }
     };
 
-    const addProduct = (item) => {
+    console.log(purcaseItems)
+
+    const addProduct = (id) => {
+        const newProductItem = products.find(product => product.id === id);
+        setPurcaseItems([...purcaseItems, newProductItem]);
         setOpenProductsList(false);
-        setPurcaseItems([...purcaseItems, item]);
         setValue({ product: '', quantity: '' });
     };
 
@@ -43,16 +46,17 @@ const MainProvider = ({ children }) => {
         setOpenProductsList(true);
     };
 
-    const enterKeypress = (e, id) => {
+    const enterKeypress = (e) => {
         if (
             e.key === 'Enter' &&
             e.target.name === 'product' &&
             products.length > 0
         ) {
             e.preventDefault();
-            setPurcaseItems([...purcaseItems, products[0]]);
-            setOpenProductsList(false);
-            setValue({ product: '', quantity: '' });
+            const newProductId = +document.querySelector('.active').dataset.id;
+            addProduct(newProductId)
+            setProducts([])
+
             // enter-a basinca arama inputuna odaklan ( useRef )
         } else if (e.key === 'Enter' && e.target.name === 'quantity') {
             // enter-a basinca arama inputuna odaklan ( useRef )
@@ -62,16 +66,17 @@ const MainProvider = ({ children }) => {
     const handleChange = (e, id) => {
         setValue({ ...value, [e.target.name]: e.target.value });
 
+        if (e.target.name === 'product' && e.target.value !== '') {
+            handleInputFocus()
+        }
+
         if (e.target.name === 'quantity') {
             const addQuantity = purcaseItems.map((item) =>
                 item.id === id ? { ...item, quantity: e.target.value } : item
             );
             setPurcaseItems(addQuantity);
         }
-        // setOpenProductsList(true);
     };
-
-    console.log(purcaseItems);
 
     const filteredProducts = products.filter((item) =>
         item.name

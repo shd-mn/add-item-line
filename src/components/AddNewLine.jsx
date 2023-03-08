@@ -12,35 +12,32 @@ function AddNewLine() {
         handleInputFocus,
         openProductsList,
         setShowAddInput,
-        enterKeypress
+        enterKeypress,
     } = useMyContext();
     return (
         <>
             <ul>
                 <div className="purcase-item-input  mb-2">
                     <div className="form-control ">-</div>
-                    <div className="position-relative" onMouseLeave={
-                        () => setOpenProductsList(false)
-                    }>
+                    <div
+                        className="position-relative"
+                        onMouseLeave={() => setOpenProductsList(false)}
+                    >
                         <Input
                             className="form-control"
                             type="text"
                             name="product"
-                            autocomplete="off"
+                            autoComplete="off"
                             value={value.product}
                             onChange={handleChange}
                             placeholder="Type to search products"
-                            onFocus={handleInputFocus}
+                            onClick={handleInputFocus}
                             onKeyPress={enterKeypress}
-
                         />
                         {openProductsList && <ProductList />}
                     </div>
                     <div>-</div>
-                    <Input
-                        className="form-control"
-                        type="number"
-                    />
+                    <Input className="form-control" type="number" disabled />
                     <div>
                         <Button
                             className="btn close-btn"

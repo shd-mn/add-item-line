@@ -3,7 +3,7 @@ import Button from './Button';
 import { useMyContext } from '../context';
 
 function ProductList() {
-    const { isLoading, products, addProduct, filteredProducts } = useMyContext();
+    const { isLoading, addProduct, filteredProducts } = useMyContext();
     
     if (isLoading) {
         return <Loading />;
@@ -14,9 +14,8 @@ function ProductList() {
                 <Button
                     key={product.id}
                     className={`btn btn-primary list-group-item product-item ${index===0 && 'active'}`}
-                    onClick={() => addProduct(product)}
-                    // onMouseLeave={() =>  setOpenProductsList(false) }
-                    
+                    onClick={() => addProduct(product.id)}
+                    data-id={product.id}
                 >
                     {product.name}
                 </Button>

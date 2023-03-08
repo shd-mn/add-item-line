@@ -21,12 +21,15 @@ function PurcaseItem({ name, id, instock, quantity }) {
             <div>{instock}</div>
             <div className="position-relative">
                 <Input
-                    onChange={e => handleChange(e, id)}
                     name="quantity"
-                    defaultValue={quantity}
-                    onKeyPress={(e) => enterKeypress(e, id)}
-                    className="form-control"
                     type="number"
+                    min="1"
+                    max="1000"
+                    className="form-control"
+                    defaultValue={quantity}
+                    onChange={e => handleChange(e, id)}
+                    onKeyPress={(e) => enterKeypress(e, id)}
+                    
                 />
             </div>
         </li>
