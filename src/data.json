@@ -1,0 +1,46 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Blue Skirt / Small",
+            "instock": 123,
+            "size": "small"
+        },
+        {
+            "id": 2,
+            "name": "Blue Skirt / Medium",
+            "instock": 15,
+            "size": "medium"
+        },
+        {
+            "id": 3,
+            "name": "Solo Made Mini Skirt / Small",
+            "instock": 19,
+            "size": "small"
+        },
+        {
+            "id": 4,
+            "name": "Solo Made Mini Skirt / Medium",
+            "instock": 150,
+            "size": "medium"
+        },
+        {
+            "id": 5,
+            "name": "Solo Made Mini Skirt / Large",
+            "instock": 68,
+            "size": "large"
+        },
+        {
+            "id": 6,
+            "name": "Brigitta Mini Dress / Medium",
+            "instock": 36,
+            "size": "medium"
+        },
+        {
+            "id": 7,
+            "name": "Brigitta Mini Dress / Small",
+            "instock": 68,
+            "size": "small"
+        }
+    ]
+}
