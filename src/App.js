@@ -16,8 +16,8 @@ export default function App() {
                     {purcaseItems.map((item) => (
                         <PurcaseItem key={item.id} {...item} />
                     ))}
+                    {showAddInput && <AddNewLine />}
                 </ul>
-                {showAddInput && <AddNewLine />}
             </div>
 
             {

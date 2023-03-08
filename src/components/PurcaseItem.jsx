@@ -27,9 +27,8 @@ function PurcaseItem({ name, id, instock, quantity }) {
                     max="1000"
                     className="form-control"
                     defaultValue={quantity}
-                    onChange={e => handleChange(e, id)}
+                    onChange={(e) => handleChange(e, id)}
                     onKeyPress={(e) => enterKeypress(e, id)}
-                    
                 />
             </div>
         </li>
