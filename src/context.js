@@ -34,11 +34,13 @@ const MainProvider = ({ children }) => {
 
     console.log(purcaseItems)
 
-    const addProduct = (id) => {
-        const newProductItem = products.find(product => product.id === id);
-        setPurcaseItems([...purcaseItems, newProductItem]);
-        setOpenProductsList(false);
-        setValue({ product: '', quantity: '' });
+    const addProduct = (element) => {
+        if (element) {
+            const newProductItem = products.find(product => product.id === +element.dataset.id);
+            setPurcaseItems([...purcaseItems, newProductItem]);
+            setOpenProductsList(false);
+            setValue({ product: '', quantity: '' });
+        }
     };
 
     const handleInputFocus = () => {
@@ -53,12 +55,13 @@ const MainProvider = ({ children }) => {
             products.length > 0
         ) {
             e.preventDefault();
-            const newProductId = +document.querySelector('.active').dataset.id;
-            addProduct(newProductId)
+            const newProduct = document.querySelector('.product-item.active');
+            addProduct(newProduct)
             setProducts([])
-
+            
             // enter-a basinca arama inputuna odaklan ( useRef )
         } else if (e.key === 'Enter' && e.target.name === 'quantity') {
+            e.preventDefault();
             // enter-a basinca arama inputuna odaklan ( useRef )
         }
     };
